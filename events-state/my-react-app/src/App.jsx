@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Portfolio from './Portfolio/Portfolio'
 import Toolbar from './Toolbar/Toolbar'
-
+import { v4 as uuid } from "uuid";
 
 class App extends Component{
   constructor(props){
@@ -62,7 +62,8 @@ class App extends Component{
         img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
         category: "Flayers"
       }],
-      currentProject: []
+      currentProject: [],
+      selected: 'All'
     }
     this.state.currentProject = this.state.projects
     this.chooseProjects = this.chooseProjects.bind(this)
@@ -75,7 +76,7 @@ class App extends Component{
     return (
       <>
       <Toolbar chooseProjects={this.chooseProjects}/>
-      <div className='imgStyle'>{this.state.currentProject.map(el => (<img src={el.img}></img>))}</div>
+      <div className='imgStyle'>{this.state.currentProject.map(el => (<img key={uuid()} src={el.img}></img>))}</div>
       </>
       
     )

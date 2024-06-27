@@ -4,7 +4,7 @@ class Portfolio extends Component{
 
  render(){
         return (<>
-        Привет
+        
         </>)
     }
 
